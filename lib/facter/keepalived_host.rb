@@ -16,4 +16,3 @@ if not fqdn.nil?
     end
   end
 end
-}
