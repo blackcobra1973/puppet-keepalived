@@ -80,7 +80,7 @@ class keepalived (
   anchor  { 'keepalived::start': }->
   class   { 'keepalived::install': }->
   class   { 'keepalived::config': }->
-  class   { 'keepalived::global_defs': }->
+  #class   { 'keepalived::global_defs': }->
   class   { 'keepalived::service': }->
   anchor  { 'keepalived::end': }
 
