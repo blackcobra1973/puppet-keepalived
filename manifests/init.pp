@@ -13,6 +13,7 @@ class keepalived (
   $service_enable     = true,
   $service_ensure     = 'running',
   $service_manage     = true,
+  $service_systemd    = false,
 #  $service_name       = 'keepalived',
   $service_restart    = undef,
 )
