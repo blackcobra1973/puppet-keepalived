@@ -21,16 +21,17 @@
 #
 #
 class keepalived::global_defs(
-  $notification_email      = undef,
-  $notification_email_from = undef,
-  $smtp_server             = undef,
-  $smtp_connect_timeout    = undef,
-  $router_id               = undef,
+  $notification_email      = $keepalived::notification_email,
+  $notification_email_from = $keepalived::notification_email_from,
+  $smtp_server             = $keepalived::smtp_server,
+  $smtp_connect_timeout    = $keepalived::smtp_connect_timeout,
+  $router_id               = $keepalived::router_id,
   $ensure                  = present,
-) inherits keepalived::params {
+)
+{
   concat::fragment { 'keepalived.conf_globaldefs':
     ensure  => $ensure,
-    target  => "${::keepalived::params::config_dir}/keepalived.conf",
+    target  => "${::keepalived::config_dir}/keepalived.conf",
     content => template('keepalived/globaldefs.erb'),
     order   => '010',
   }
